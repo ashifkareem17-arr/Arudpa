@@ -1,0 +1,114 @@
+:host {
+  --burg:       #3d1129;
+  --burg-dim:   rgba(61,17,41,0.55);
+  --burg-ghost: rgba(61,17,41,0.08);
+  --border:     rgba(61,17,41,0.18);
+  --fd: 'Playfair Display', Georgia, serif;
+  --fb: 'Cormorant Garamond', Georgia, serif;
+}
+
+.faqs {
+  padding: 5rem 60px 6rem;
+  background: linear-gradient(135deg, #f5a882 0%, #f0a090 40%, #e8a0b0 100%);
+  min-height: 100vh;
+}
+
+.section-label {
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--burg-dim); font-family: var(--fb); font-weight: 300; margin-bottom: 10px;
+}
+
+.faqs h2 {
+  font-family: var(--fd); font-size: 38px; color: var(--burg);
+  font-style: italic; font-weight: 400; margin-bottom: 48px;
+}
+
+.faqs-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px; align-items: start;
+}
+
+/* ── Contact Form ── */
+.form-sub {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--burg-dim); font-family: var(--fb); font-weight: 300; margin-bottom: 10px;
+}
+
+.form-title {
+  font-family: var(--fd); font-size: 30px; color: var(--burg);
+  font-style: italic; font-weight: 400; margin-bottom: 32px; line-height: 1.2;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-label {
+  display: block; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--burg-dim); font-family: var(--fb); font-weight: 300; margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%; padding: 13px 16px;
+  background: rgba(255,248,245,0.55);
+  border: 0.5px solid var(--border);
+  font-family: var(--fb); font-size: 15px; color: var(--burg);
+  outline: none; transition: border-color 0.2s, background 0.2s;
+  border-radius: 0;
+}
+
+.form-input:focus { border-color: var(--burg); background: rgba(255,248,245,0.85); }
+.form-input::placeholder { color: rgba(61,17,41,0.35); }
+textarea.form-input { resize: vertical; min-height: 120px; }
+
+.submit-btn {
+  width: 100%; padding: 15px;
+  background: var(--burg); color: #fff8f5;
+  border: none; cursor: pointer;
+  font-family: var(--fb); font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; font-weight: 300;
+  transition: background 0.25s, transform 0.2s; margin-top: 4px;
+}
+
+.submit-btn:hover { background: #6b2d4e; transform: translateY(-1px); }
+
+/* ── FAQs ── */
+.faq-sub {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--burg-dim); font-family: var(--fb); font-weight: 300; margin-bottom: 10px;
+}
+
+.faq-title {
+  font-family: var(--fd); font-size: 30px; color: var(--burg);
+  font-style: italic; font-weight: 400; margin-bottom: 32px; line-height: 1.2;
+}
+
+.faq-item {
+  border-bottom: 0.5px solid var(--border); padding: 18px 0;
+  cursor: pointer; transition: padding-left 0.2s;
+}
+
+.faq-item:hover { padding-left: 6px; }
+
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--fb); font-size: 16px; color: var(--burg); font-weight: 400;
+}
+
+.icon {
+  font-size: 20px; color: var(--burg-dim); flex-shrink: 0;
+  margin-left: 12px; transition: transform 0.3s, color 0.2s; display: inline-block;
+}
+
+.faq-item.open .icon { transform: rotate(45deg); color: var(--burg); }
+
+.faq-answer p {
+  font-family: var(--fb); font-size: 14px; color: var(--burg-dim);
+  line-height: 1.9; margin-top: 12px; font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .faqs { padding: 3rem 24px 4rem; }
+  .faqs-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+}

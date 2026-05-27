@@ -1,0 +1,91 @@
+/* ─────────────────────────────────────────
+   ARUDPA — Gallery Component Styles
+───────────────────────────────────────── */
+
+:host {
+  --burg:       #3d1129;
+  --burg-dim:   rgba(61, 17, 41, 0.5);
+  --burg-ghost: rgba(61, 17, 41, 0.08);
+  --border:     rgba(61, 17, 41, 0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Cormorant Garamond', Georgia, serif;
+}
+
+.gallery {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #f5a882 0%, #f0a090 40%, #e8a0b0 100%);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--burg-dim);
+  font-family: var(--font-body);
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.gallery h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--burg);
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-card {
+  border: 0.5px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+  background: rgba(255, 248, 245, 0.5);
+}
+
+.gallery-card:hover {
+  box-shadow: 0 8px 32px rgba(61, 17, 41, 0.15);
+  transform: translateY(-3px);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.03);
+}
+
+.gallery-info {
+  padding: 1.2rem 1.2rem 1.4rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.gallery-info h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--burg);
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.gallery-info p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--burg-dim);
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+}
+

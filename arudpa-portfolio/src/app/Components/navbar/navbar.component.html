@@ -1,0 +1,91 @@
+<header class="site-header">
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar">
+    <div class="nav-logo">ARUDPA</div>
+
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/gallery" routerLinkActive="active">Gallery</a></li>
+      <li><a routerLink="/faqs" routerLinkActive="active">FAQs</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <i class="fa-solid fa-magnifying-glass" title="Search" aria-label="Search"></i>
+      <i class="fa-regular fa-heart" title="Wishlist" aria-label="Wishlist"></i>
+      <i class="fa-solid fa-bag-shopping" title="Shop" aria-label="Shop"></i>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <a routerLink="/"        (click)="closeMenu()">Home</a>
+    <a routerLink="/about"   (click)="closeMenu()">About</a>
+    <a routerLink="/gallery" (click)="closeMenu()">Gallery</a>
+    <a routerLink="/faqs"    (click)="closeMenu()">FAQs</a>
+  </div>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+
+    <div class="hero-left">
+  
+      <h1 class="hero-title">Hello, I'm<br><em>Arudpa</em></h1>
+      <p class="hero-desc">
+        A passionate creator building clean, purposeful digital experiences —
+        turning ideas into reality with design and craft.
+      </p>
+      <div class="hero-buttons">
+        <a routerLink="/gallery" class="btn-primary">View Gallery</a>
+        <a routerLink="/about"   class="btn-secondary">About Me</a>
+      </div>
+    </div>
+
+    <!-- Contact card -->
+    <div class="hero-right">
+      <p class="card-eyebrow">Contact card</p>
+      <div class="contact-card">
+        <div class="card-name">A. Divya Barathy</div>
+        <div class="card-role">Founder &amp; Designer</div>
+        <div class="card-divider"></div>
+        <div class="card-row">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>+91 6380185576</span>
+        </div>
+        <div class="card-row">
+          <i class="fa-brands fa-instagram"></i>
+          <span>&#64;arudpa</span>
+        </div>
+        <div class="card-row">
+          <i class="fa-regular fa-envelope"></i>
+          <span>arudpa.label&#64;gmail.com</span>
+        </div>
+        <div class="card-website">www.arudpa.com</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Gold Ticker ── -->
+  <div class="ticker-bar" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">New Collection 2026 <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Free shipping on orders over ₹999 <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Exclusive Handcrafted Designs <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Book a Style Consultation <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Follow us &#64;arudpa <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">New Collection 2026 <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Free shipping on orders over ₹999 <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Exclusive Handcrafted Designs <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Book a Style Consultation <span class="ticker-dot">◆</span></span>
+      <span class="ticker-item">Follow us &#64;arudpa <span class="ticker-dot">◆</span></span>
+    </div>
+  </div>
+
+</header>
