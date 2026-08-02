@@ -15,7 +15,7 @@
 }
 
 .site-footer {
-  background: linear-gradient(135deg, #f5a882 0%, #f0a090 40%, #e8a0b0 100%);
+  background: linear-gradient(135deg, #f5a882 0%, #f0a090 30%, #e8a0b0 50%);
   border-top: 0.5px solid var(--border);
   font-family: var(--font-body);
   color: var(--gold);
