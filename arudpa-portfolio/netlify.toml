@@ -1,3 +1,8 @@
+[build]
+  base    = "arudpa-portfolio"
+  command = "npm run build -- --configuration production"
+  publish = "arudpa-portfolio/dist/arudpa-portfolio/browser"
+
 [[redirects]]
   from   = "/*"
   to     = "/index.html"
