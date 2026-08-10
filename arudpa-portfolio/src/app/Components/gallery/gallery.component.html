@@ -1,13 +1,25 @@
-<section class="gallery" id="gallery">
-  <p class="section-label">Gallery</p>
-  <h2>My Designs</h2>
-  <div class="gallery-grid">
-    <div class="gallery-card" *ngFor="let item of Collections">
-      <img [src]="item.image" [alt]="item.title" />
-      <div class="gallery-info">
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.desc }}</p>
-      </div>
+<section class="gallery-shell" aria-labelledby="gallery-title">
+  <nav class="gallery-tabs" aria-label="Gallery sections">
+    <a class="gallery-tab active" routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Our Designs</a>
+    <a class="gallery-tab" routerLink="/gallery/sarees" routerLinkActive="active">Our Collections</a>
+  </nav>
+
+  <div class="gallery-page">
+    <p class="page-eyebrow">Gallery</p>
+    <h2 id="gallery-title" class="page-title">Our Designs</h2>
+
+    <div class="gallery-grid">
+      <article class="gallery-card" *ngFor="let item of collections">
+        <img class="gallery-image" [src]="item.image" [alt]="item.title + ': ' + item.description" />
+        <div class="gallery-info">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </article>
     </div>
+
+    <a class="view-sarees-button" routerLink="/gallery/sarees">
+      View Sarees Collection <span aria-hidden="true">&#8594;</span>
+    </a>
   </div>
 </section>

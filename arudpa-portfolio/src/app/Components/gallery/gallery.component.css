@@ -1,91 +1,159 @@
-/* ─────────────────────────────────────────
-   ARUDPA — Gallery Component Styles
-───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
 
 :host {
-  --burg:       #3d1129;
-  --burg-dim:   rgba(61, 17, 41, 0.5);
-  --burg-ghost: rgba(61, 17, 41, 0.08);
-  --border:     rgba(61, 17, 41, 0.15);
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Cormorant Garamond', Georgia, serif;
+  display: block;
+  --burgundy: #2a0a1a;
+  --muted: rgba(42, 10, 26, 0.6);
+  --line: rgba(42, 10, 26, 0.2);
+  --card: rgba(255, 240, 230, 0.5);
+  --display-font: 'Playfair Display', Georgia, serif;
+  --body-font: 'Cormorant Garamond', Georgia, serif;
 }
 
-.gallery {
-  padding: 5rem 2rem;
+.gallery-shell {
+  min-height: 100vh;
+  color: var(--burgundy);
   background: linear-gradient(135deg, #f5a882 0%, #f0a090 40%, #e8a0b0 100%);
-  border-bottom: 0.5px solid var(--border);
+  overflow: hidden;
 }
 
-.section-label {
-  font-size: 10px;
+.gallery-tabs {
+  display: flex;
+  border-bottom: 0.5px solid var(--line);
+}
+
+.gallery-tab {
+  flex: 1;
+  padding: 14px 20px 12px;
+  border-bottom: 2px solid transparent;
+  color: rgba(42, 10, 26, 0.5);
+  font: 400 13px var(--body-font);
+  letter-spacing: 3px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.gallery-tab:hover,
+.gallery-tab.active {
+  color: var(--burgundy);
+}
+
+.gallery-tab.active {
+  border-bottom-color: var(--burgundy);
+  font-weight: 600;
+}
+
+.gallery-page {
+  padding: 60px;
+}
+
+.page-eyebrow {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font: 400 11px var(--body-font);
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--burg-dim);
-  font-family: var(--font-body);
-  font-weight: 300;
-  margin-bottom: 12px;
 }
 
-.gallery h2 {
-  font-family: var(--font-display);
-  font-size: 36px;
-  font-weight: 400;
-  color: var(--burg);
-  margin-bottom: 2.5rem;
-  font-style: italic;
+.page-title {
+  margin: 0 0 32px;
+  color: var(--burgundy);
+  font: italic 400 42px var(--display-font);
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
 }
 
 .gallery-card {
-  border: 0.5px solid var(--border);
-  border-radius: 2px;
   overflow: hidden;
-  transition: box-shadow 0.25s, transform 0.25s;
-  background: rgba(255, 248, 245, 0.5);
+  border: 0.5px solid rgba(42, 10, 26, 0.15);
+  border-radius: 5px;
+  background: var(--card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .gallery-card:hover {
-  box-shadow: 0 8px 32px rgba(61, 17, 41, 0.15);
-  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(42, 10, 26, 0.18);
+  transform: translateY(-5px);
 }
 
-.gallery-card img {
+.gallery-image {
+  display: block;
   width: 100%;
-  height: 220px;
+  height: 260px;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  background: rgba(245, 168, 130, 0.3);
+  transition: transform 0.35s ease;
 }
 
-.gallery-card:hover img {
-  transform: scale(1.03);
+.gallery-card:hover .gallery-image {
+  transform: scale(1.04);
 }
 
 .gallery-info {
-  padding: 1.2rem 1.2rem 1.4rem;
-  border-top: 0.5px solid var(--border);
+  padding: 18px;
 }
 
 .gallery-info h3 {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--burg);
-  margin-bottom: 4px;
-  font-style: italic;
+  margin: 0 0 6px;
+  color: var(--burgundy);
+  font: italic 400 19px var(--display-font);
 }
 
 .gallery-info p {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--burg-dim);
-  margin-bottom: 12px;
-  letter-spacing: 0.3px;
-  font-weight: 300;
+  margin: 0;
+  color: var(--muted);
+  font: 400 15px var(--body-font);
+  line-height: 1.4;
 }
 
+.view-sarees-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: var(--burgundy);
+  color: #fff8f5;
+  font: 500 12px var(--body-font);
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.view-sarees-button:hover {
+  background: #6b2d4e;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-page {
+    padding: 32px 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-tab {
+    padding-inline: 8px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .page-title {
+    font-size: 34px;
+  }
+}

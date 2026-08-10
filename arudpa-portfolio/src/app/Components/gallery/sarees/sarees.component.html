@@ -1,0 +1,41 @@
+<section class="sarees-shell" aria-labelledby="sarees-title">
+  <nav class="sarees-tabs" aria-label="Gallery sections">
+    <a class="sarees-tab" routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Our Designs</a>
+    <a class="sarees-tab active" routerLink="/gallery/sarees" routerLinkActive="active">Our Collection</a>
+  </nav>
+
+  <div class="sarees-page">
+    <p class="page-eyebrow">Our Collection</p>
+    <h2 id="sarees-title" class="page-title">Sarees and Half Sarees Collection</h2>
+
+    <div class="sarees-grid">
+      <article class="saree-card" *ngFor="let saree of sarees">
+        <img class="saree-image" [src]="saree.image" [alt]="saree.name" />
+        <div class="saree-info">
+          <h3>{{ saree.name }}</h3>
+          <p class="price">{{ saree.price | currency:'INR':'symbol-narrow':'1.0-0' }}</p>
+          <button type="button" class="add-cart-button" [class.selected]="selectedSaree?.id === saree.id" (click)="selectSaree(saree)">
+            {{ selectedSaree?.id === saree.id ? 'Selected' : 'Add to Cart' }}
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <section *ngIf="selectedSaree" class="enquiry-wrap" id="enquiry-form" aria-live="polite">
+      <p class="selected-product">You selected: <strong>{{ selectedSaree.name }} — {{ selectedSaree.price | currency:'INR':'symbol-narrow':'1.0-0' }}</strong></p>
+      <h3>Send an Enquiry</h3>
+      <p class="enquiry-subtitle">Our team will connect with you</p>
+
+      <form #enquiryForm="ngForm" (ngSubmit)="submitForm(enquiryForm)">
+        <div class="form-row">
+          <label>Name<input class="form-input" type="text" [(ngModel)]="user.name" name="name" placeholder="Your full name" required /></label>
+          <label>Phone Number<input class="form-input" type="tel" [(ngModel)]="user.phone" name="phone" placeholder="+91 00000 00000" required /></label>
+        </div>
+        <label>Address<input class="form-input" type="text" [(ngModel)]="user.address" name="address" placeholder="Your delivery address" required /></label>
+        <label>Message (optional)<textarea class="form-input" [(ngModel)]="user.message" name="message" placeholder="Any special requirements..."></textarea></label>
+        <button class="submit-button" type="submit">Submit Enquiry</button>
+      </form>
+      <p *ngIf="formSubmitted" class="success-message">Our team will connect with you soon!</p>
+    </section>
+  </div>
+</section>
